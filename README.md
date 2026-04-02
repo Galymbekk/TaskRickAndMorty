@@ -1,16 +1,39 @@
-# rikaandmorti_app
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Rick and Morty App
+    Приложение для просмотра персонажей из мультсериала «Рик и Морти»
+## Что умеет приложение
+    - Загружает список персонажей с публичного API
+    - Подгружает новых персонажей при прокрутке
+    - Добавление в избранное(сохраняется после перезапуска)
+    - Отдельный экран с избранными персонажами
+    - Сортировка: по имени, статусу, виду
+    - Тёмная и светлая тема
+    - Офлайн-режим: данные сохраняются в кэш и отображаются без интернета
+    - Анимация при нажатии на сердечко
+## Как устроен проект
+    - 'main.dart' — главный файл, темы, навигация между экранами
+    - 'api_service.dart' — отправка запросов к API
+    - 'cache_service.dart' — сохранение данных в кэш
+    - 'favorite_service.dart' — сохранение избранного
+    - 'character_card.dart' — карточка персонажа(аватар, имя, статус, кнопка лайка)
+    - 'favourites_page.dart' — экран с избранным
+    
+    Архитектура:
+    - Данные приходят из API → сохраняются в кэш → показываются на экране
+    - Избранное хранится отдельно, не зависит от интернета
+    - UI переиспользует одни и те же карточки на обоих экранах
+## Какие технологии использовал
+  Технология | Для чего 
+  Flutter → Весь интерфейс и логика 
+  HTTP → Запросы к API 
+  Hive → Кэш для офлайн-режима 
+  Shared Preferences → Хранение избранного 
+  Cached Network Image → Кэш картинок 
+  Google Fonts → Шрифт Poppins
+## Как запустить
+    #Скачать проект
+     git clone https://github.com/Galymbekk/TaskRickAndMorty.git
+     cd rikaandmorti_app
+    #Установить зависимости
+     flutter pub get
+    #Запустить
+     flutter run
